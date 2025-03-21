@@ -4,9 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      .text-color {
+        color: red;
+      }
+    </style>
   </head>
 
   <body>
@@ -14,9 +26,13 @@
     <script type="text/babel">
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
+      const name = "Marc";
       root.render(
-      <h1>Wselcome</h1>
-
+        <>
+          <h1 className="text-color">Welcome to React</h1>
+          <p>{name}</p>
+          <p>React is { 5 + 5 } times better with JSX</p>
+        </>
       );
     </script>
   </body>
