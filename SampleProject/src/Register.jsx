@@ -2,11 +2,15 @@ import React from 'react'
 import Field from './Forms/Field'
 
 export default function Register() {
+    const submit = () => {
+        alert("Registered!")
+    }
   return (
     <div >
-        <Field type="text" label="Name :"/>
+        <h1>Register</h1>
+        <Field  label={"Name: "}/>
         <br/>
-        <Field type="text" label="Username :"/>
+        <Field  label="Username :"/>
         <br/>
         <Field type="email" label="Email :"/>
         <br/>
@@ -14,7 +18,7 @@ export default function Register() {
         <br/>
         <Field type="password" label="Confirm Password :"/>
         <br/>
-        <button>Register</button>
+        <button onClick={submit}>Register</button>
     </div>
   )
 }
