@@ -1,0 +1,53 @@
+.section {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: absolute;
+  width: 60%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.header {
+  justify-self: center;
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 60px;
+  justify-content: space-between;
+}
+
+img#profile {
+  width: 150px;
+  height: 150px;
+  top: -100px;
+  border: 5px solid white;
+  border-radius: 100%;
+  position: absolute;
+}
+
+h2 {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.personal-information p {
+    margin-left: 0;
+    text-align: left;
+}
+
+.work-information p {
+    margin-left: 0;
+    text-align: right;
+}
+
+.body p{
+    text-align: left;
+    margin-left: 0;
+}

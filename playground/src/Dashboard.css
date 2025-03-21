@@ -1,0 +1,50 @@
+p, h4{
+    margin: 0;
+}
+.section {
+  width: 100%;
+}
+
+.post {
+  background-color: white;
+  margin: 0 auto;
+  justify-self: center;
+  /* display: flex; */
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.header img {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.header h4, p {
+  margin-left: 10px;
+}
+
+i {
+  margin-left: auto;
+}
+
+.body img {
+  width: 100%;
+}
+
+.clickables{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.bookmark{
+    margin-left: auto;
+}
