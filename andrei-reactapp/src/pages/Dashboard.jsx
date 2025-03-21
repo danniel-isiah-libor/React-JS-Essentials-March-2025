@@ -38,7 +38,7 @@ function Dashboard() {
                   </div>
                 </div>
 
-                <div className="text-start">
+                <div className="text-start p-2">
                   <h3>{post.title}</h3>
                   <p className='text-xs text-zinc-500'>{post.body}</p>
                   <img
