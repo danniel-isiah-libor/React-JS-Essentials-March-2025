@@ -9,6 +9,12 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .text-color {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,9 +27,14 @@
         // Create a react root component
         const root = ReactDOM.createRoot(container);
 
+        const name = "Danniel";
+
         // Render react root component
         root.render(
-            <h1> Welcome to React</h1>
+            <>
+                <h1 className="text-color"> Welcome to React</h1>
+                <p>{name}</p>
+            </>
         );
     </script>
 </body>
