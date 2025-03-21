@@ -5,6 +5,7 @@ import Login from "./Login.jsx";
 import Dashboard from "./Dashboard.jsx";
 import Profile from "./Profile.jsx";
 import Layout from "../Layout.jsx";
+import Error from "./Error.jsx";
 import {Route,Routes,BrowserRouter} from 'react-router-dom'
 // export default function Home() {
 //   const path = window.location.pathname;
@@ -38,8 +39,9 @@ export default function Home() {
           <Route path='login' element={<Login/>}/>
           <Route path='register' element={<Register/>}/>
           <Route path='/' element={<Layout/>}>
-            <Route path='dashboard' element={<Dashboard/>}/>
+            <Route index element={<Dashboard/>}/>
             <Route path='profile' element={<Profile/>}/>
+            <Route path="*" element={<Error/>} />
           </Route>
           
       </Routes>
