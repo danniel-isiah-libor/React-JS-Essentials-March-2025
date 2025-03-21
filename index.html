@@ -14,17 +14,34 @@
       crossorigin
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      .text-color{
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      function Hello() {
-        return <h1>Hoy World!</h1>;
-      }
+      // function Hello() {
+      //   return 
+      //     <h1>Hoy World!</h1>
+      //     <P>{name}
+      // }
 
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
-      root.render(<Hello />);
+      const name=`Jervin`;
+      
+      // root.render(<Hello />);
+      root.render(
+        <>
+          <h1 className ="text-color"> Welcome to react</h1>
+          <p> {name}</p>
+
+        </>
+      )
+
     </script>
   </body>
 </html>
