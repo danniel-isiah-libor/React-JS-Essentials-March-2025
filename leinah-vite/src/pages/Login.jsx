@@ -1,4 +1,4 @@
-import Field from "./Form/Field.jsx";
+import Field from "../Components/Form/Field.jsx";
 
 export default function Login() {
     return (

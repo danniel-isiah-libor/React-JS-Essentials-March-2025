@@ -1,4 +1,4 @@
-import Field from "./Components/Form/Field"
+import Field from "../Components/Form/Field"
 export default function Register() {
 
     const submit = () => {
