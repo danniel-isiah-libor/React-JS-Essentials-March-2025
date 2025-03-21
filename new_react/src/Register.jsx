@@ -1,5 +1,5 @@
 import React from "react";
-import Field from "./form/Field.jsx";
+import Field from "./Form/Field.jsx";
 
 function Register() {
   return (
