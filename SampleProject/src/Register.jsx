@@ -1,17 +1,18 @@
 import React from 'react'
-import Fields from './Forms/Field'
+import Field from './Forms/Field'
+
 export default function Register() {
   return (
     <div >
-        <Fields type="text" label="Name :"/>
+        <Field type="text" label="Name :"/>
         <br/>
-        <Fields type="text" label="Username :"/>
+        <Field type="text" label="Username :"/>
         <br/>
-        <Fields type="email" label="Email :"/>
+        <Field type="email" label="Email :"/>
         <br/>
-        <Fields type="password" label="Password :"/>
+        <Field type="password" label="Password :"/>
         <br/>
-        <Fields type="password" label="Confirm Password :"/>
+        <Field type="password" label="Confirm Password :"/>
         <br/>
         <button>Register</button>
     </div>

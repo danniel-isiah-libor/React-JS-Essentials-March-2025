@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Input({label,...props }) {
+export default function Field(props ) {
   return (
     <div>
-<label>{label}</label>
-<input {...props}/>      
+    <label>{props.label}</label>
+    <input type={props.type}/>      
     </div>
   )
 }
