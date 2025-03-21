@@ -14,13 +14,13 @@
 
     <div id="root"></div>
     <script type="text/babel">
-        function Hello(){
-            return <h1>Hello World!</h1>
-        }
-
+        // Get a ref to the root elements
         const container = document.getElementById('root')
+        // Create a react root component
         const root = ReactDOM.createRoot(container)
-        root.render(<Hello />)
+        root.render(
+            <h1>Hello World!</h1>
+        )
     </script>
 </body>
 
