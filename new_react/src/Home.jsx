@@ -1,6 +1,7 @@
 import "./Home.css";
-import Register from "./Register";
-import Login from "./Login";
+import Register from "./Register.jsx";
+import Login from "./Login.jsx";
+import Dashboard from "./Dashboard.jsx";
 
 function Home() {
   const url = window.location.href;
@@ -10,6 +11,8 @@ function Home() {
         return <Login />;
       case "http://localhost:5173/register":
         return <Register />;
+      case "http://localhost:5173/dashboard":
+        return <Dashboard />;
       default:
         return <> Page Not Found</>;
     }
