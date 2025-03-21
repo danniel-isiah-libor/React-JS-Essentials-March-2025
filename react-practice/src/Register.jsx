@@ -4,30 +4,30 @@ import Field from "./form/Field";
 export default function Register() {
   return (
     <div>
-      <Field/>
+      <Field label="Name" type="text"/>
 
       <br />
       <br />
 
-      <Field/>
+      <Field label="Username" type="text"/>
 
       <br />
       <br />
 
-      <Field/>
+      <Field label="Email" type="email"/>
 
       <br />
       <br />
 
-      <Field/>
+      <Field label="Password" type="password"/>
 
       <br />
       <br />
 
-      <Field/>
+      <Field label="Confirm Password" type="password"/>
 
       <br/>
-      <br />
+      <br/>
 
       <button>Register</button>
       
