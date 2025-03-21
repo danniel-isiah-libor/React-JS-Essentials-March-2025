@@ -1,6 +1,7 @@
 import './Home.css'
 import Register from './Register.jsx'
 import Login from './Login.jsx'
+import Dashboard from './Dashboard.jsx'
 function Home() {
   console.log(window.location.href);
   const url = window.location.href;
@@ -12,6 +13,9 @@ function Home() {
         break;
       case "http://localhost:5173/register":
         return <Register/>
+        break;
+      case "http://localhost:5173/dashboard":
+        return <Dashboard/>
         break;
 
       default:
