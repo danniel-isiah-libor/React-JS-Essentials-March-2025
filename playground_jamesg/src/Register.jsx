@@ -1,34 +1,36 @@
 import React from "react"
 import Field from "./form/Field.jsx"
+
+
 function Register() {
     return (
       <div>
-        <Field />
-  
+        <Field label="Name" type="text"/>
         <br />
         <br />
   
-        <Field />
+        <Field label="Username" type="text"/>
   
         <br />
         <br />
-  
-        <Field />
-  
+
+        <Field label="email" type="email"/>
+
+
         <br />
         <br />
   
-        <Field />
+        <Field label="Password" type="password"/>
+
   
         <br />
         <br />
-  
-        <Field />
+        <Field label="Confirm Password" type="password"/>
   
         <br />
         <br />
-  
         <button>Register</button>
+        
       </div>
     );
   }
