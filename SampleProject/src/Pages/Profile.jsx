@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './Components/Card'
+import Card from '../Components/Card'
 
 export default function Profile() {
     const profileInfos = [
@@ -8,7 +8,7 @@ export default function Profile() {
             Username: "cjavier",
             Email: "ChristianJavier@gmail.com"
         }
-    ]
+    ] 
     const profileExp = [
         {
             Company: "JX Metals",

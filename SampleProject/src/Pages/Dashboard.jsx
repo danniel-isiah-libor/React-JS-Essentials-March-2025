@@ -1,5 +1,5 @@
 import React from "react";
-import dashboardStyle from './Dashboard.module.css'
+import dashboardStyle from '../css/Dashboard.module.css'
 export default function Dashboard() {
   const posts = [
     {
