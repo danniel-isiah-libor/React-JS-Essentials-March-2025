@@ -3,6 +3,7 @@ import React from "react";
 import Register from "./Register.jsx";
 import Login from "./Login.jsx";
 import Dashboard from "./Dashboard.jsx";
+import Profile from "./Profile.jsx";
 
 export default function Home() {
   const path = window.location.pathname;
@@ -14,6 +15,8 @@ export default function Home() {
         return <Register />;
       case "/dashboard":
         return <Dashboard />;
+      case "/profile":
+        return <Profile/>
       default:
         return <h1>Page Not Found!</h1>;
     }

@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Field({label,type}) {
+export default function Field({label,type,isReadOnly = false,text = null}) {
   return (
     <div>
-      <label>{label ?? 'Label'}:</label>
-      <input type={type ?? 'text'} />
+      <label className="mr-2 font-bold">{label ?? 'Label'}:</label>
+      {!isReadOnly  ? <input type={type ?? 'text'} value={text ?? ""} />:<label>{text}</label>}
     </div>
   );
 }
