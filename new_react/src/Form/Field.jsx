@@ -1,11 +1,10 @@
 import React from "react";
 
-function Field(props) {
-  console.log(props.label);
+function Field({ label = "label", type = "text" }) {
   return (
     <div>
-      <label>{props.label}</label>
-      <input type={props.type} />
+      <label>{label}</label>
+      <input type={type} />
     </div>
   );
 }
