@@ -1,5 +1,5 @@
 import React from "react";
-import Field from "./form/Field";
+import Field from "../form/Field";
 
 export default function Register() {
   const submit = ()=>{
@@ -7,6 +7,7 @@ export default function Register() {
   }
   return (
     <div>
+      <a href='/login'>Login Here</a>
       <Field label="Name" />
 
       <br />

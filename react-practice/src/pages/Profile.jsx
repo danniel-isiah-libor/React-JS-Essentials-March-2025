@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from './page/Header'
-import Field from './form/Field'
-import Card from './page/Card'
+import Header from '../page/Header'
+import Field from '../form/Field'
+import Card from '../page/Card'
 
 export default function Profile() {
   return (
