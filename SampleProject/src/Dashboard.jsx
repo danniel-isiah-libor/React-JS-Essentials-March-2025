@@ -23,9 +23,9 @@ export default function Dashboard() {
 //   };
   return (
     <div className="p-5">
-      <h1 className="text-5xl font-bold underline">Dashboard</h1>
+      <h1 className="text-3xl font-medium ">Dashboard</h1>
       <br />
-      <ul className="p-5 flex flex-col space-y-2">
+      <ul className="flex flex-col space-y-2">
         {posts.map((post, index) => {
           return (
             <li className="border bg-sky-200 px-3 py-1 rounded">
