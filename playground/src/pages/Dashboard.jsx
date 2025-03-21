@@ -1,5 +1,5 @@
 import React from 'react'
-import dashboardStyles from './Dashboard.module.css'
+import dashboardStyles from '../css/Dashboard.module.css'
 
 function Dashboard() {
     const posts = [
@@ -30,10 +30,10 @@ function Dashboard() {
 
         <ul className={dashboardStyles.bgColor}>
             {
-                posts.map((post) => {
+                posts.map((post, index) => {
                     return (
                         // <ListItem post={post}/>
-                        <li style={styles}>
+                        <li style={styles} key={index}>
                             <h3>{post.title}</h3>
                             <p>{post.body}</p>
                         </li>

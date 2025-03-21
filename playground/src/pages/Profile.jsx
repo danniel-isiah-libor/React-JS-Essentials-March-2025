@@ -1,7 +1,7 @@
 import React from 'react'
-import Card from './profile/Card.jsx'
-import Info from './profile/Info.jsx'
-import WorkExperienceInfo from './profile/WorkExperienceInfo.jsx'
+import Card from '../profile/Card.jsx'
+import Info from '../profile/Info.jsx'
+import WorkExperienceInfo from '../profile/WorkExperienceInfo.jsx'
 
 function Profile() {
     const profile = {
@@ -28,9 +28,9 @@ function Profile() {
     <>
         <Card title="Profile Information">
             {
-                Object.keys(profile).map((key) => {
+                Object.keys(profile).map((key, index) => {
                     return (
-                        <Info label={key} value={profile[key]}/>
+                        <Info key={index} label={key} value={profile[key]}/>
                     )
                 })
             }
@@ -41,9 +41,9 @@ function Profile() {
         <Card title="Work Experiences">
             <ul>
             {
-                workExperiences.map((workExperience) => {
+                workExperiences.map((workExperience, index) => {
                     return (
-                        <WorkExperienceInfo data={workExperience}/>
+                        <WorkExperienceInfo key={index} data={workExperience}/>
                     )
                 })
             }
