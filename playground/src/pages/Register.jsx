@@ -10,6 +10,8 @@ const fields = {
   confirmPassword: ""
 }
 
+let firstRender = true
+
 function Register() {
   // const [name, setName] = useState("");
   // const [username, setUsername] = useState("");
@@ -19,15 +21,39 @@ function Register() {
 
   const [form, setForm] = useState(fields)
   const [errors, setErrors] = useState(fields)
+  const [validated, setValidated] = useState(false)
 
   useEffect(() => {
-    console.log(form);
+    console.log(errors);
 
-    validate()
+    if (!firstRender) {
+      validate()
+    }
   }, [form])
+
+  useEffect(() => {
+    if (validated) {
+      const hasErrors = Object.values(errors).filter((e) => e !== "").length
+
+      console.log(errors);
+      console.log(hasErrors);
+
+      if (!hasErrors) {
+        // saving....
+        alert(JSON.stringify(form))
+      }
+    }
+  }, [validated])
 
   const onChange = (e) => {
     const {name, value} = e.target
+
+    firstRender = false
+    setErrors((prev) => ({
+      ...prev,
+      [name]: ""
+    }))
+    setValidated(false)
 
     // setForm({
     //   ...form,
@@ -40,7 +66,8 @@ function Register() {
   }
 
   const submit = () => {
-    alert(JSON.stringify(form))
+    validate()
+    setValidated(true)
   }
 
   const validate = () => {
