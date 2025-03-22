@@ -1,15 +1,15 @@
-import React from 'react'
-import Card from '../Components/Card'
+import React, { useState } from 'react'
+import Card from '../components/Card'
 
 export default function Profile() {
-    const profileInfos = [
+    const [profileInfos] = useState ([
         {
             Name: "Christian Javier",
             Username: "cjavier",
             Email: "ChristianJavier@gmail.com"
         }
-    ] 
-    const profileExp = [
+    ]) 
+    const [profileExp] = useState ([
         {
             Company: "JX Metals",
             Role: "Programmer",
@@ -21,7 +21,7 @@ export default function Profile() {
             Year: "Jan 2020 - March 2023"
         },
         
-    ]
+    ])
   return (
     <div className='flex flex-col space-y-5 p-5 border max-w-[60%]'>
         
@@ -30,4 +30,4 @@ export default function Profile() {
 
     </div>
   )
-}
+}  

@@ -3,10 +3,10 @@ import "../css/Home.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./Register";
 import Login from "./Login";
-import Dashboard from "./Dashboard";
 import Profile from "./Profile";
 import Layout from "../Layout";
 import PageNotFound from "./PageNotFound";
+import Dashboard from "./Dashboard";
 // export default function Home() {
 //   const url = window.location.pathname;
 
