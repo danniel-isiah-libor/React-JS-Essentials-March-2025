@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import StateHook from "../hooks/StateHook.jsx";
 
 function Hooks() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("trial");
+  });
 
   const onClick = () => {
     setCount(count + 1);
@@ -11,15 +16,18 @@ function Hooks() {
     setCount(0);
   };
 
+  const actions = {
+    onClick: onClick,
+    onReset: onReset,
+  };
+
   return (
     <>
       <div>Hooks</div>
-      <h1>{count}</h1>
-      <button onClick={onClick}>Click Me</button>
-      <button onClick={onReset}>Reset</button>
+
+      <StateHook count={count} actions={actions} />
     </>
   );
 }
 
 export default Hooks;
-Hooks;
