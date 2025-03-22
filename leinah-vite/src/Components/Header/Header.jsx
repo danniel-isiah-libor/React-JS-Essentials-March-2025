@@ -13,7 +13,22 @@ export default function Header() {
       name: "Profile",
       href: "/profile",
       current: false,
-    }
+    },
+    {
+      name: "Dashboard",
+      href: "/dashboard",
+      current: false,
+    },
+    {
+      name: "Post",
+      href: "/post",
+      current: false,
+    },
+    {
+      name: "Create Post",
+      href: "/create-post",
+      current: false,
+    },
   ]
 
   return (

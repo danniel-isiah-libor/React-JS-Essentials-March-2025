@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../Basic/Button'
-const UserDetails = () => {
+const UserDetails = (props) => {
     return (
         <div
             className="items-center bg-white rounded-b-2xl p-4 sm:p-6 lg:p-8"
@@ -21,7 +21,7 @@ const UserDetails = () => {
                             John Doe
                         </p>
                         <p className="font-bold text-gray-500 text-base">
-                            @jdoe12
+                            @
                         </p>
 
                         <p>Software Engineer and Fashion Designer</p>
