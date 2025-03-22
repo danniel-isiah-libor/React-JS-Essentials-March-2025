@@ -31,10 +31,8 @@ const DashboardTable = () => {
       username: "ej",
       email: "estelitojerome.lugtu@wdc.com",
     },
-    // Add more data as needed
   ]);
 
-  // Handle search term change in the input
   const handleSearchTermChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -42,7 +40,7 @@ const DashboardTable = () => {
   // Handle search button click
   const handleSearch = () => {
     if (!searchTerm) {
-      // If the search term is empty, show all data
+      // pag empty ang search show all
       setFilteredData(data);
     } else {
       const results = data.filter((item) =>
@@ -54,7 +52,6 @@ const DashboardTable = () => {
     }
   };
 
-  // Initialize filteredData with all data if no search is performed initially
   useEffect(() => {
     setFilteredData(data);
   }, [data]);
