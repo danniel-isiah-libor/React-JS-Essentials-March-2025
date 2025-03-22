@@ -11,12 +11,7 @@ const fields = {
 }
 
 function Register() {
-  // const [name, setName] = useState("");
-  // const [username, setUsername] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
-
+  
   const [form, setForm] = useState(fields)
   const [errors, setErrors] = useState(fields)
 
@@ -28,11 +23,6 @@ function Register() {
 
   const onChange = (e) => {
     const {name, value} = e.target
-
-    // setForm({
-    //   ...form,
-    //   [name]: value ?? ""
-    // })
     setForm((prev) => ({
       ...prev,
       [name]: value ?? ""
