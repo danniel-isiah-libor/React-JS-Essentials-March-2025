@@ -21,7 +21,7 @@ function Layout() {
             {navigation.map((nav, index) => {
               return (
                 <li key={index}>
-                  <Link to={nav.href}>{nav.name}</Link>
+                  <Link to={nav.href}>{nav.name}</Link> 
                 </li>
               );
             })}
