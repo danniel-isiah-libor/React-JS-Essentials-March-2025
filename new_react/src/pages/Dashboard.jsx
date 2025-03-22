@@ -1,5 +1,6 @@
 import React from "react";
 import dashboardStyles from "../Dashboard.module.css";
+import DashboardTable from "../Table/DashboardTable";
 
 function Dashboard() {
   const posts = [
@@ -34,6 +35,7 @@ function Dashboard() {
           </li>
         ))}
       </ul>
+      <DashboardTable />
     </>
   );
 }
