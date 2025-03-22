@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, createContext} from 'react'
 import SearchBar from './SearchBar.jsx'
 import Table from './Table.jsx'
+
+export const RecordContext = createContext()
 
 function UsersTable() {
     const [users] = useState([
@@ -47,7 +49,9 @@ function UsersTable() {
     <>
         <SearchBar/>
 
-        <Table records={users} headers={headers}/>
+        <RecordContext.Provider value={{ records: users, headers }}>
+            <Table/>
+        </RecordContext.Provider>
     </>
   )
 }
