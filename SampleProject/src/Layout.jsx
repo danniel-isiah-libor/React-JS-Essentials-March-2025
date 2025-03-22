@@ -9,6 +9,7 @@ const navigation = [
     name: "Profile",
     href: "/profile",
   },
+  
 ];
 export default function Layout() {
   return (

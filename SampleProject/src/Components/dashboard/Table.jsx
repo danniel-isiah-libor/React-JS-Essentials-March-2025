@@ -3,6 +3,7 @@ import TableData from "./TableData";
 
 export default function Table({ tableHeader, tableData }) {
   const header = tableHeader ?? [];
+console.log("tableHeader", tableHeader)
 console.log("tableData", tableData)
   return (
     <div className="">
@@ -16,7 +17,7 @@ console.log("tableData", tableData)
                     className="px-3 py-1 border text-center border-gray-400"
                     key={index}
                   >
-                    {title}
+                    {title.name}
                   </td>
                 );
               })}

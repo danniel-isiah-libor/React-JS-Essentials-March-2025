@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import Layout from "../Layout";
 import PageNotFound from "./PageNotFound";
 import Dashboard from "./Dashboard";
+import CreatePost from "./CreatePost";
 // export default function Home() {
 //   const url = window.location.pathname;
 
@@ -44,6 +45,7 @@ export default function Home() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="create" element={<CreatePost />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>

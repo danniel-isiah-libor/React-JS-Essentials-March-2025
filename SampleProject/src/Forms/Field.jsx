@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function Field({ label, type, onChange, name }) {
+export default function Field(props) {
+  const { label, type, onChange, name, error, className } = props
   return (
-    <div className="grid grid-cols-3">
+    <div className={className}>
       <label className="self-center">{label ?? "Label"}</label>
       <input
         type={type ?? "text"}
@@ -12,6 +13,7 @@ export default function Field({ label, type, onChange, name }) {
           onChange(e);
         }}
       />
+      {error && (error[name] && <p className="text-red-500">{error[name]}</p>)}
     </div>
   );
 }
