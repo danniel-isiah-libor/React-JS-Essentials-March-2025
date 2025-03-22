@@ -14,7 +14,11 @@ const navigation = [
     {
         name: 'Register',
         href: '/register',
-    }
+    },
+    {
+        name: 'Search',
+        href: '/SearchPage',
+    }    
 ]
 
 

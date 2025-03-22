@@ -3,8 +3,10 @@ import '../css/Home.css'
 import Register from './Register.jsx'
 import Login from './Login.jsx'
 import Dashboard from './Dashboard.jsx'
+import SearchPage from  './SearchPage.jsx'
 import Profile from './Profile.jsx'
 import Layout from '../Layout.jsx'
+
 
 // function Home () {
 //     const url = window.location.href
@@ -37,13 +39,13 @@ function Home () {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="login" element={<Login/>}/>
-                
+                <Route path="login" element={<Login/>}/>           
                 <Route path="/" element={<Layout/>}>
-                    <Route path="dashboard" element={<Dashboard/>}/>
-                    <Route path="profile" element={<Profile/>}/>
-                    <Route path="register" element={<Register/>}/>
-                </Route>
+                    <Route path="Dashboard" element={<Dashboard/>}/>
+                    <Route path="Profile" element={<Profile/>}/>
+                    <Route path="Register" element={<Register/>}/>
+                    <Route path="SearchPage" element={<SearchPage/>}/>
+                </Route> 
             </Routes>
         </BrowserRouter>
     )
