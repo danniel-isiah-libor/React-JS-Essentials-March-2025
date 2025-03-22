@@ -1,41 +1,87 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import Field from "../form/Field.jsx";
-import Button from '../Button.jsx'
+import Button from "../form/Button.jsx";
+
+const fields = {
+  name: "",
+  username: "",
+  email: "",
+  password: "",
+  confirmPassword: ""
+}
 
 function Register() {
+  // const [name, setName] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [form, setForm] = useState(fields)
+  const [errors, setErrors] = useState(fields)
+
+  useEffect(() => {
+    console.log(form);
+
+    validate()
+  }, [form])
+
+  const onChange = (e) => {
+    const {name, value} = e.target
+
+    // setForm({
+    //   ...form,
+    //   [name]: value ?? ""
+    // })
+    setForm((prev) => ({
+      ...prev,
+      [name]: value ?? ""
+    }))
+  }
+
   const submit = () => {
-    alert("Registered!");
+    alert(JSON.stringify(form))
+  }
+
+  const validate = () => {
+    if (!form.name) {
+      setErrors((prev) => ({
+        ...prev,
+        name: "Name is required"
+      }))
     }
+  }
+
   return (
     <div>
-      <Field label="Name" type="text" />
+      <Field label="Name" onChange={onChange} name="name" errors={errors}/>
 
       <br />
-
-      <Field label="UserName" type="text" />
-      {/* <label>UserName</label>
-      <input type="text" /> */}
       <br />
 
-      <Field label="Email" type="email" />
-      {/* <label>Email</label>
-      <input type="email" /> */}
+      <Field label="Username" onChange={onChange} name="username"/>
+
+      <br />
       <br />
 
-      <Field label="Password" type="password" />
-      {/* <label>Password</label>
-      <input type="password" /> */}
+      <Field label="Email" type="email" onChange={onChange} name="email"/>
+
+      <br />
       <br />
 
-      <Field label="Confirm Password" type="password" />
-      {/* <label>Confirm Password</label>
-      <input type="password" /> */}
+      <Field label="Password" type="password" onChange={onChange} name="password"/>
+
+      <br />
       <br />
 
-      <button onClick={submit}>Register</button>
-      {/* <Button clickEvent={submit} label='' */}
+      <Field label="Confirm Password" type="password" onChange={onChange} name="confirmPassword"/>
 
-        <a href="/login">Login Here</a>
+      <br />
+      <br />
+
+      <Button clickEvent={submit} label="Register"/>
+
+      <a href="/login">Login Here</a>
     </div>
   );
 }

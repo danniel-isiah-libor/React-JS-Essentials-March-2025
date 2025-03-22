@@ -48,12 +48,12 @@
 
 // export default Dashboard
 
-
-import React from 'react'
-import dashboardStyles from '../css/Dashboard.module.css'
+import React, {useState} from 'react'
+import dashboardStyles from "../css/Dashboard.module.css";
+import UsersTable from "../dashboard/UserTable.jsx";
 
 function Dashboard() {
-    const posts = [
+    const [posts] = useState([
         {
             title: 'Learning React',
             body: 'React is a JavaScript library for building user interfaces.'
@@ -66,7 +66,7 @@ function Dashboard() {
             title: 'Props in React',
             body: 'Props are arguments passed into React components.'
         }
-    ];
+    ]);
 
     const styles = { 
         border: "1px solid red",
@@ -92,6 +92,8 @@ function Dashboard() {
                 })
             }
         </ul>
+
+        <UsersTable/>
     </>
   )
 }

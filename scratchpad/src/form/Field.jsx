@@ -1,14 +1,20 @@
-import React from 'react'
-
 function Field(props) {
-// function Field() {label,type
+  const { label, type, onChange, name, errors } = props
+
   return (
     <div>
-      <label>{props.label}</label>
-      <input type={props.type}/>
-      {/* <label>{label ?? 'Label'}</label>
-      <input type={type ?? 'text'} /> */}
-      </div>
+        <label>{label ?? 'Label'}:</label>
+        <input 
+          type={type ?? 'text'} 
+          onChange={onChange}
+          name={name}
+        />
+        {
+          (errors) && (
+            errors[name] && <p style={{color: 'red'}}>{errors[name]}</p>
+          )
+        }
+    </div>
   )
 }
 

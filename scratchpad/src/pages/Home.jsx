@@ -7,6 +7,7 @@ import Dashboard from './Dashboard.jsx';
 import Profile from './Profile.jsx';
 import Layout from '../Layout.jsx';
 import NoPage from './NoPage.jsx';
+import Hooks from './Hooks.jsx';
 
 // function Home () {
 //     const url = window.location.href
@@ -45,6 +46,8 @@ function Home () {
                 <Route path="/" element={<Layout/>}>
                     <Route path="dashboard" element={<Dashboard/>}/>
                     <Route path="profile" element={<Profile/>}/>
+                    <Route path="hooks" element={<Hooks/>}/>
+
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
 
