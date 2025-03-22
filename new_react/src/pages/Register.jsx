@@ -1,5 +1,5 @@
 import React from "react";
-import Field from "./Form/Field.jsx";
+import Field from "../Form/Field.jsx";
 
 function Register() {
   const submit = () => {
@@ -34,6 +34,7 @@ function Register() {
       <br />
 
       <button onClick={submit}>Register</button>
+      <a href="/login">Login Here</a>
     </div>
   );
 }
