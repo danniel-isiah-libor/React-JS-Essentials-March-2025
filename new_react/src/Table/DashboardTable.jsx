@@ -31,6 +31,12 @@ const DashboardTable = () => {
       username: "ej",
       email: "estelitojerome.lugtu@wdc.com",
     },
+    {
+      id: 5,
+      name: "Dave Tablante",
+      username: "dave",
+      email: "dave.tablante@wdc.com",
+    },
   ]);
 
   const handleSearchTermChange = (e) => {

@@ -1,10 +1,10 @@
-import React from "react";
+function Field(props) {
+  const { label, type, onChange, name } = props;
 
-function Field({ label = "label", type = "text" }) {
   return (
     <div>
-      <label>{label}</label>
-      <input type={type} />
+      <label>{label ?? "Label"}:</label>
+      <input type={type ?? "text"} onChange={onChange} name={name} />
     </div>
   );
 }
