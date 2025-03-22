@@ -9,6 +9,9 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Welcome to React</title>
 </head>
+<style>
+    .text-color {color:red;}
+</style>
 
 <body>
     <div id="root"></div>
@@ -24,11 +27,11 @@
         const root = ReactDOM.createRoot(container);
         const name = "Brian";
 
-
-
+        //render react root component 
         root.render(<>
-
-        </>
+            <h1 className="text-color">Welcome to React!</h1>
+            <p>{name}</p>
+                    </>
         );
     </script>
 </body>
