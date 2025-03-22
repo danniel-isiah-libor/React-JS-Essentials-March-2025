@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function Subprofile() {
-  const Experiences = [
+
+  
+  const [Experiences] = useState([
     {
       CompanyName: 'Inventive Media',
       Years: '2002-2003'
@@ -15,7 +17,8 @@ function Subprofile() {
       Years: '2002-2003'
     },
 
-  ]
+    
+  ])
   return (
     <div className="mt-10">
       <p className="text-start italic text-sm">Work Experience</p>

@@ -2,10 +2,12 @@ import '../css/Home.css'
 import Register from './Register.jsx'
 import Login from './Login.jsx'
 import Dashboard from './Dashboard.jsx'
+import Hooks from './Hooks.jsx'
 import Profile from './Profile.jsx'
 import Nopage from './Nopage.jsx'
 import Layout from '../Layout.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import CreatePost from './CreatePost.jsx'
 function Home() {
   // console.log(window.location.href);
   // const url = window.location.href;
@@ -41,6 +43,9 @@ function Home() {
           <Route path="/" element={<Layout />}>
             <Route index  element={<Dashboard />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="hooks" element={<Hooks />} />
+            <Route path="createpost" element={<CreatePost />} />
+
             <Route path="*" element={<Nopage />} />
           </Route>
         </Routes>
