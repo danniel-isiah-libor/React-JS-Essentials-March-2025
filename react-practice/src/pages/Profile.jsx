@@ -1,15 +1,22 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import Header from '../page/Header'
 import Field from '../form/Field'
 import Card from '../page/Card'
 
 export default function Profile() {
+  const [profile] = useState({
+    name:"Gerald Orzal",
+    username:"GOrzal",
+    email:"geraldorzal18@gmail.com",
+    workingExperiences:[]
+  })
   return (
    <div>
         <Header text="Profile"/>
-        <Field label="Name" text="Gerald Orzal" isReadOnly={true}/>
-        <Field label="Username" text="GOrzal" isReadOnly={true}/>
-        <Field label="Email  " text="geraldorzal18@gmail.com" isReadOnly={true}/>
+        {
+            Object.keys(profile)?.map((key)=> console.log(typeof(key)) && <Field label={key} text={profile[key]} isReadOnly={true}/>)
+        }
+        
         <Header text="Work Experiences"/>
         <ul style={{listStyle:"inside"}}>
           <Card

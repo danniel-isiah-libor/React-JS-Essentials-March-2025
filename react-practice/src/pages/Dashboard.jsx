@@ -1,5 +1,6 @@
 import React from "react";
 import dashboardStyle from './../css/Dashboard.module.css'
+import SearchableTable from '../page/SearchableTable.jsx'
 export default function Dashboard() {
   const posts = [
     {
@@ -9,7 +10,7 @@ export default function Dashboard() {
     {
       title: "Post 2",
       body: "This is Post 2",
-    },
+    }, 
     {
       title: "Post 3",
       body: "This is Post 3",
@@ -22,17 +23,12 @@ export default function Dashboard() {
 
     <br/>
 
-    <ul className="bg-secondary">
-        
-        {
-            
-            posts.map(({title,body})=>
-                <li style={styles}>
-                    <h3>{title}</h3>
-                    <p>{body}</p>
-                </li>
-            )
-        }
-    </ul>
+    <SearchableTable
+      header={
+        [
+          "name","username","email"
+        ]
+      }
+    />
   </>;
 }
