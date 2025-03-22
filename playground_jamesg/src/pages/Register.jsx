@@ -1,44 +1,116 @@
-import React from "react"
+import {useState, useEffect} from "react";
 import Field from "../form/Field.jsx"
+import Button from "../form/Button.jsx"
 
+const fields = {
+  name: "",
+  username: "",
+  email: "",
+  password: "",
+  confirmPassword: ""
+}
+
+let firstRender = true
 
 function Register() {
-    const submit = () => {
-        alert("Registered!")
+  // const [name, setName] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [form, setForm] = useState(fields)
+  const [errors, setErrors] = useState(fields)
+  const [validated, setValidated] = useState(false)
+
+  useEffect(() => {
+    console.log(errors);
+
+    if (!firstRender) {
+      validate()
     }
+  }, [form])
 
-    return (
-      <div>
-        <br />
-        <Field/>
-        <br />
-        <br />
-  
-        <Field label="Username" type="text"/>
-  
-        <br />
-        <br />
+  useEffect(() => {
+    if (validated) {
+      const hasErrors = Object.values(errors).filter((e) => e !== "").length
 
-        <Field label="email" type="email"/>
+      console.log(errors);
+      console.log(hasErrors);
 
+      if (!hasErrors) {
+        // saving....
+        alert(JSON.stringify(form))
+      }
+    }
+  }, [validated])
 
-        <br />
-        <br />
-  
-        <Field label="Password" type="password"/>
+  const onChange = (e) => {
+    const {name, value} = e.target
 
-  
-        <br />
-        <br />
-        <Field label="Confirm Password" type="password"/>
-  
-        <br />
-        <br />
-        <button onClick={submit}>Register</button>
+    firstRender = false
+    setErrors((prev) => ({
+      ...prev,
+      [name]: ""
+    }))
+    setValidated(false)
 
-
-      </div>
-    );
+    // setForm({
+    //   ...form,
+    //   [name]: value ?? ""
+    // })
+    setForm((prev) => ({
+      ...prev,
+      [name]: value ?? ""
+    }))
   }
-  
-  export default Register;
+
+  const submit = () => {
+    validate()
+    setValidated(true)
+  }
+
+  const validate = () => {
+    if (!form.name) {
+      setErrors((prev) => ({
+        ...prev,
+        name: "Name is required"
+      }))
+    }
+  }
+
+  return (
+    <div>
+      <Field label="Name" onChange={onChange} name="name" errors={errors}/>
+
+      <br />
+      <br />
+
+      <Field label="Username" onChange={onChange} name="username"/>
+
+      <br />
+      <br />
+
+      <Field label="Email" type="email" onChange={onChange} name="email"/>
+
+      <br />
+      <br />
+
+      <Field label="Password" type="password" onChange={onChange} name="password"/>
+
+      <br />
+      <br />
+
+      <Field label="Confirm Password" type="password" onChange={onChange} name="confirmPassword"/>
+
+      <br />
+      <br />
+
+      <Button clickEvent={submit} label="Register"/>
+
+      <a href="/login">Login Here</a>
+    </div>
+  );
+}
+
+export default Register;

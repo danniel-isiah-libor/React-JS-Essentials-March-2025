@@ -16,9 +16,13 @@ const navigation = [
         href: '/register',
     },
     {
-        name: 'Search',
-        href: '/SearchPage',
-    }    
+        name: 'CreatePost',
+        href: '/CreatePost',
+    },    
+    // {
+    //     name: 'Search',
+    //     href: '/SearchPage',
+    // }    
 ]
 
 

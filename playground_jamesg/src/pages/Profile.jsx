@@ -1,37 +1,52 @@
-import React from 'react'
+import React, {useState, useReducer} from 'react'
 import Card from '../profile/Card.jsx'
 import Info from '../profile/Info.jsx'
 import WorkExperienceInfo from '../profile/WorkExperienceInfo.jsx'
 
+const initialWorkExperiences = [
+    {
+        company: 'Tech Inc.',
+        position: 'Software Engineer',
+        date: 'Jan 2019 - Dec 2021'
+    },
+    {
+        company: 'Shop Inc.',
+        position: 'Software Developer',
+        date: 'Jan 2021 - Dec 2022'
+    }
+]
+
+const reducer = (state, action) => {
+    switch(action.type){
+        case 'DELETE': {
+            const data = [...state]
+            data.splice(action.index, 1)
+            return data
+        }
+    }
+}
+
 function Profile() {
-    const profile = {
+    const [profile] = useState({
         Name: 'James Gonzales',
         Username: 'james.gonzales',
-        Email: 'jms@mail.test',
+        Email: 'james.gonzales@mail.test',
         Address: '1234 Main St, City, Country',
+    })
+
+    const [workExperiences, dispatch] = useReducer(reducer, initialWorkExperiences)
+
+    const onDelete = (index) => {
+        dispatch({type: 'DELETE', index})
     }
 
-    const workExperiences = [
-        {
-            company: 'Tech Inc.',
-            position: 'Software Engineer',
-            date: 'Jan 2019 - Dec 2021'
-        },
-        {
-            company: 'Shop Inc.',
-            position: 'Software Developer',
-            date: 'Jan 2021 - Dec 2022'
-        }
-    ]
-
   return (
-    <div>
-        <br />
+    <>
         <Card title="Profile Information">
             {
-                Object.keys(profile).map((key) => {
+                Object.keys(profile).map((key, index) => {
                     return (
-                        <Info label={key} value={profile[key]}/>
+                        <Info key={index} label={key} value={profile[key]}/>
                     )
                 })
             }
@@ -42,15 +57,15 @@ function Profile() {
         <Card title="Work Experiences">
             <ul>
             {
-                workExperiences.map((workExperience) => {
+                workExperiences.map((workExperience, index) => {
                     return (
-                        <WorkExperienceInfo data={workExperience}/>
+                        <WorkExperienceInfo key={index} data={workExperience} onDelete={onDelete}/>
                     )
                 })
             }
             </ul>
         </Card>
-    </div>
+    </>
   )
 }
 

@@ -4,22 +4,23 @@ const DataTable = ({ records }) => {
   return (
     <div>
       {records.length > 0 ? (
-        <table className="min-w-full table-auto border-collapse border border-gray-300">
+        <table className="min-w-full table-auto border-collapse border border-black bg-white">
+
           <thead>
             <tr>
-              <th className="border p-2">ID</th>
-              <th className="border p-2">Name</th>
-              <th className="border p-2">Username</th>
-              <th className="border p-2">Email</th>
+              <th className="border">ID</th>
+              <th className="border">Name</th>
+              <th className="border">Username</th>
+              <th className="border">Email</th>
             </tr>
           </thead>
           <tbody>
             {records.map((record) => (
               <tr key={record.id}>
-                <td className="border p-2">{record.id}</td>
-                <td className="border p-2">{record.name}</td>
-                <td className="border p-2">{record.username}</td>
-                <td className="border p-2">{record.email}</td>
+                <td className="border">{record.id}</td>
+                <td className="border">{record.name}</td>
+                <td className="border">{record.username}</td>
+                <td className="border">{record.email}</td>
               </tr>
             ))}
           </tbody>

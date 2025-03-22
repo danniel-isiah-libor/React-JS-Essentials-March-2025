@@ -3,9 +3,11 @@ import '../css/Home.css'
 import Register from './Register.jsx'
 import Login from './Login.jsx'
 import Dashboard from './Dashboard.jsx'
-import SearchPage from  './SearchPage.jsx'
+// import SearchPage from  './SearchPage.jsx'
 import Profile from './Profile.jsx'
 import Layout from '../Layout.jsx'
+import Hooks from  './Hooks.jsx'
+import CreatePost from './CreatePost.jsx'
 
 
 // function Home () {
@@ -44,7 +46,9 @@ function Home () {
                     <Route path="Dashboard" element={<Dashboard/>}/>
                     <Route path="Profile" element={<Profile/>}/>
                     <Route path="Register" element={<Register/>}/>
-                    <Route path="SearchPage" element={<SearchPage/>}/>
+                    {/* <Route path="SearchPage" element={<SearchPage/>}/> */}
+                    <Route path="CreatePost" element={<CreatePost/>}/>
+                    <Route path="Hooks" element={<Hooks/>}/>
                 </Route> 
             </Routes>
         </BrowserRouter>
