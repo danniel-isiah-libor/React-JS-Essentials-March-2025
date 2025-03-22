@@ -1,17 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Card from '../profile/Card.jsx'
 import Info from '../profile/Info.jsx'
 import WorkExperienceInfo from '../profile/WorkExperienceInfo.jsx'
 
 function Profile() {
-    const profile = {
+    const [profile] = useState({
         Name: 'Danniel Libor',
         Username: 'danniel.libor',
         Email: 'danniel@mail.test',
         Address: '1234 Main St, City, Country',
-    }
+    })
 
-    const workExperiences = [
+    const [workExperiences] = useState([
         {
             company: 'Tech Inc.',
             position: 'Software Engineer',
@@ -22,7 +22,7 @@ function Profile() {
             position: 'Software Developer',
             date: 'Jan 2021 - Dec 2022'
         }
-    ]
+    ])
 
   return (
     <>
