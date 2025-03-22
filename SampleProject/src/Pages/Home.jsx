@@ -45,7 +45,7 @@ export default function Home() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="create" element={<CreatePost />} />
+          <Route path="create-post" element={<CreatePost />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
