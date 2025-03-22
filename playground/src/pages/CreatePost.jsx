@@ -55,11 +55,10 @@ function CreatePost() {
     }
 
     const submit = async () => {
-        const validated = await validate()
-
-        console.log(validated);
-
-        // alert(JSON.stringify(form))
+        if (await validate()) {
+            // saving...
+            alert(JSON.stringify(form))
+        }
     }
     
   return (
