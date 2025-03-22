@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Search from "../Search";
 import Table from "./Table";
 import { data } from "react-router-dom";
 
+export const RecordContext = createContext();
 export default function UsersTable() {
     const [tableHeader] = useState ([
         {
@@ -60,11 +61,12 @@ export default function UsersTable() {
    })
   }
 
-  console.log(table)
   return (
     <div className="w-full h-full flex flex-col space-y-2">
       <Search search={search} />
-      <Table tableData={table.data} tableHeader={table.header} />
+      <RecordContext.Provider value={{data: table.data, header: table.header }}>
+        <Table />
+      </RecordContext.Provider>
     </div>
   );
 }

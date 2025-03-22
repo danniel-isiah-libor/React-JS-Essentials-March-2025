@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { RecordContext } from "./UsersTable";
+export default function TableData() {
+  const {data} = useContext(RecordContext);
 
-export default function TableData({ data }) {
+  console.log("452145", data)
   return (
       <>
       {data?.map((item, index) => {

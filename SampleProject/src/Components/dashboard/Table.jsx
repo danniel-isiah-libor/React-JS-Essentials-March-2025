@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import TableData from "./TableData";
+import { RecordContext } from "./UsersTable";
+export default function Table() {
+const {data, header} = useContext(RecordContext)
 
-export default function Table({ tableHeader, tableData }) {
-  const header = tableHeader ?? [];
-console.log("tableHeader", tableHeader)
-console.log("tableData", tableData)
   return (
     <div className="">
-      {tableHeader !== undefined && tableData !== undefined ? (
+      {header !== undefined && data !== undefined ? (
         <table className="table-auto w-full">
           <thead>
             <tr>
               {header.map((title, index) => {
-                return (
+                 return (
                   <td
                     className="px-3 py-1 border text-center border-gray-400"
                     key={index}
@@ -24,8 +23,8 @@ console.log("tableData", tableData)
             </tr>
           </thead>
           <tbody>
-            {tableData.length !== 0 ? (
-              <TableData data={tableData} />
+            {data.length !== 0 ? (
+              <TableData/>
             ) : (
               <tr>
                 <td colSpan={header.length} className="">
