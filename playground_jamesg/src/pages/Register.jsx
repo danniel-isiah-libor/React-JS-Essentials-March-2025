@@ -1,11 +1,16 @@
 import React from "react"
-import Field from "./form/Field.jsx"
+import Field from "../form/Field.jsx"
 
 
 function Register() {
+    const submit = () => {
+        alert("Registered!")
+    }
+
     return (
       <div>
-        <Field label="Name" type="text"/>
+        <br />
+        <Field/>
         <br />
         <br />
   
@@ -29,8 +34,9 @@ function Register() {
   
         <br />
         <br />
-        <button>Register</button>
-        
+        <button onClick={submit}>Register</button>
+
+
       </div>
     );
   }
