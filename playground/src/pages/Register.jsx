@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Field from "../form/Field.jsx"
 import Button from "../form/Button.jsx"
 
@@ -18,25 +18,43 @@ function Register() {
   // const [confirmPassword, setConfirmPassword] = useState("");
 
   const [form, setForm] = useState(fields)
+  const [errors, setErrors] = useState(fields)
+
+  useEffect(() => {
+    console.log(form);
+
+    validate()
+  }, [form])
 
   const onChange = (e) => {
     const {name, value} = e.target
 
-    console.log(name, value);
-
-    setForm({
-      ...form,
+    // setForm({
+    //   ...form,
+    //   [name]: value ?? ""
+    // })
+    setForm((prev) => ({
+      ...prev,
       [name]: value ?? ""
-    })
+    }))
   }
 
   const submit = () => {
     alert(JSON.stringify(form))
   }
 
+  const validate = () => {
+    if (!form.name) {
+      setErrors((prev) => ({
+        ...prev,
+        name: "Name is required"
+      }))
+    }
+  }
+
   return (
     <div>
-      <Field label="Name" onChange={onChange} name="name"/>
+      <Field label="Name" onChange={onChange} name="name" errors={errors}/>
 
       <br />
       <br />

@@ -1,5 +1,5 @@
 function Field(props) {
-  const { label, type, onChange, name } = props
+  const { label, type, onChange, name, errors } = props
 
   return (
     <div>
@@ -9,6 +9,11 @@ function Field(props) {
           onChange={onChange}
           name={name}
         />
+        {
+          (errors) && (
+            errors[name] && <p style={{color: 'red'}}>{errors[name]}</p>
+          )
+        }
     </div>
   )
 }
