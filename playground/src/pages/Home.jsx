@@ -6,6 +6,7 @@ import Dashboard from './Dashboard.jsx'
 import Profile from './Profile.jsx'
 import Layout from '../Layout.jsx'
 import NoPage from './NoPage.jsx'
+import CreatePost from './CreatePost.jsx'
 import Hooks from './Hooks.jsx'
 
 // function Home () {
@@ -46,6 +47,7 @@ function Home () {
                     <Route index element={<Dashboard/>}/>
                     <Route path="profile" element={<Profile/>}/>
                     <Route path="hooks" element={<Hooks/>}/>
+                    <Route path="create-post" element={<CreatePost/>}/>
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>

@@ -1,5 +1,5 @@
 function Field(props) {
-  const { label, type, onChange, name, errors } = props
+  const { label, type, onChange, name, errors,value } = props
 
   return (
     <div>
@@ -8,6 +8,7 @@ function Field(props) {
           type={type ?? 'text'} 
           onChange={onChange}
           name={name}
+          value={value}
         />
         {
           (errors) && (

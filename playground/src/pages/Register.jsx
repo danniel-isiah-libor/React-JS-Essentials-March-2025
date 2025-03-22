@@ -9,16 +9,18 @@ const fields = {
   password: "",
   confirmPassword: ""
 }
-
+let firstRender = true;
 function Register() {
   
   const [form, setForm] = useState(fields)
   const [errors, setErrors] = useState(fields)
-
+  const [validated, setValidated] = useState(false)
   useEffect(() => {
     console.log(form);
 
-    validate()
+    if(!firstRender){
+      validate()
+    }
   }, [form])
 
   const onChange = (e) => {
@@ -30,7 +32,18 @@ function Register() {
   }
 
   const submit = () => {
-    alert(JSON.stringify(form))
+    validate();
+  
+      
+    console.log(Object.values(errors).filter((s)=>s !== "").length)
+    const hasErrors = !Object.values(errors).filter((s)=>s !== "").length
+    
+    if(hasErrors==0){
+      alert(JSON.stringify(form))
+    }
+
+    
+
   }
 
   const validate = () => {
@@ -49,22 +62,22 @@ function Register() {
       <br />
       <br />
 
-      <Field label="Username" onChange={onChange} name="username"/>
+      <Field label="Username" onChange={onChange} name="username"  errors={errors}/>
 
       <br />
       <br />
 
-      <Field label="Email" type="email" onChange={onChange} name="email"/>
+      <Field label="Email" type="email" onChange={onChange} name="email"  errors={errors}/>
 
       <br />
       <br />
 
-      <Field label="Password" type="password" onChange={onChange} name="password"/>
+      <Field label="Password" type="password" onChange={onChange} name="password"  errors={errors}/>
 
       <br />
       <br />
 
-      <Field label="Confirm Password" type="password" onChange={onChange} name="confirmPassword"/>
+      <Field label="Confirm Password" type="password" onChange={onChange} name="confirmPassword"  errors={errors}/>
 
       <br />
       <br />
