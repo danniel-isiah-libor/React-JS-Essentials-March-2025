@@ -10,7 +10,7 @@ async function GET(request) {
   });
 
   const res = await http
-    .get("/weather", {
+    .get("/forecast", {
       params: {
         ...body,
         appid: process.env.VITE_APP_WEATHER_API_KEY,

@@ -1,6 +1,7 @@
 'use client'
 
 import React, {useState, useEffect} from "react";
+import axios from 'axios'
 import SearchBar from '@/components/weather/SearchBar'
 import WeatherCard from '@/components/weather/WeatherCard'
 import WeatherForecast from "@/components/weather/WeatherForecast";
@@ -18,6 +19,39 @@ function page() {
 
   const onSearch = () => {
     // searching...
+    console.log('searching...');
+    fetchWeather()
+    fetchForecast()
+  }
+
+  const fetchWeather = async () => {
+    const http = axios.create({
+      baseURL: 'http://localhost:3000/api'
+    })
+
+    const res = await http.get('/weather', {
+      params: {
+        q: search
+      }
+    })
+    .then((response) => response.data)
+
+    console.log(res);
+  }
+
+  const fetchForecast = async () => {
+    const http = axios.create({
+      baseURL: 'http://localhost:3000/api'
+    })
+
+    const res = await http.get('/forecast', {
+      params: {
+        q: search
+      }
+    })
+    .then((response) => response.data)
+
+    console.log(res);
   }
 
   const onChange = (value) => {
