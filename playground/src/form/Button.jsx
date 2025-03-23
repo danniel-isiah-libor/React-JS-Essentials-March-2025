@@ -1,9 +1,9 @@
-import React from 'react'
-
 function Button(props) {
   return (
-    <button onClick={props.click}>{props.text}</button> 
+    <button onClick={props.clickEvent}>
+        {props.label}
+    </button>
   )
 }
 
-export default Button 
+export default Button

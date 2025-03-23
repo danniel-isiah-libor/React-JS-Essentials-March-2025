@@ -7,6 +7,10 @@ import Dashboard from "./Dashboard.jsx";
 import Profile from "./Profile.jsx";
 import Layout from '../Layout.jsx' ;
 import NoPage from './NoPage.jsx';
+import Search from './Search.jsx';
+import Hooks from './Hooks.jsx';
+import CreatePost from './CreatePost.jsx';
+import Useref from './Useref.jsx';
 // function Home() {
 //   const url = window.location.href;
 //   const Router = () => {
@@ -38,6 +42,10 @@ function Home() {
             <Routes>
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
+                <Route path="search" element={<Search/>}/>
+                <Route path="hooks" element={<Hooks/>}/>
+                <Route path="createpost" element={<CreatePost/>}/>
+                <Route path="useref" element={<Useref/>}/>
 
                 <Route path="/" element={<Layout/>}>
                     <Route index path="dashboard" element={<Dashboard/>}/>

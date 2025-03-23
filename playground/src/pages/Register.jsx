@@ -1,27 +1,114 @@
-import React from "react";
-import Field from "../form/Field.jsx";
-import Button from "../form/Button.jsx";
+import {useState, useEffect} from "react";
+import Field from "../form/Field.jsx"
+import Button from "../form/Button.jsx"
+
+const fields = {
+  name: "",
+  username: "",
+  email: "",
+  password: "",
+  confirmPassword: ""
+}
+
+let firstRender = true
+
 function Register() {
+  // const [name, setName] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [form, setForm] = useState(fields)
+  const [errors, setErrors] = useState(fields)
+  const [validated, setValidated] = useState(false)
+
+  useEffect(() => {
+    console.log(errors);
+
+    if (!firstRender) {
+      validate()
+    }
+  }, [form])
+
+  useEffect(() => {
+    if (validated) {
+      const hasErrors = Object.values(errors).filter((e) => e !== "").length
+
+      console.log(errors);
+      console.log(hasErrors);
+
+      if (!hasErrors) {
+        // saving....
+        alert(JSON.stringify(form))
+      }
+    }
+  }, [validated])
+
+  const onChange = (e) => {
+    const {name, value} = e.target
+
+    firstRender = false
+    setErrors((prev) => ({
+      ...prev,
+      [name]: ""
+    }))
+    setValidated(false)
+
+    // setForm({
+    //   ...form,
+    //   [name]: value ?? ""
+    // })
+    setForm((prev) => ({
+      ...prev,
+      [name]: value ?? ""
+    }))
+  }
+
   const submit = () => {
-    alert("Register");
-  };
+    validate()
+    setValidated(true)
+  }
+
+  const validate = () => {
+    if (!form.name) {
+      setErrors((prev) => ({
+        ...prev,
+        name: "Name is required"
+      }))
+    }
+  }
 
   return (
     <div>
-      
-      <Field label="Name" type="text" />
+      <Field label="Name" onChange={onChange} name="name" errors={errors}/>
 
-      <Field label="Username" type="text" />
-
-      <Field label="Email" type="email" />
-
-      <Field label="Password" type="password" />
-
-      <Field label="Confirm password" type="password" />
-
-      <Button click={submit} text="Register" />
       <br />
-      <a href="/profile">Go to Profile</a>
+      <br />
+
+      <Field label="Username" onChange={onChange} name="username"/>
+
+      <br />
+      <br />
+
+      <Field label="Email" type="email" onChange={onChange} name="email"/>
+
+      <br />
+      <br />
+
+      <Field label="Password" type="password" onChange={onChange} name="password"/>
+
+      <br />
+      <br />
+
+      <Field label="Confirm Password" type="password" onChange={onChange} name="confirmPassword"/>
+
+      <br />
+      <br />
+
+      <Button clickEvent={submit} label="Register"/>
+
+      <a href="/login">Login Here</a>
     </div>
   );
 }
