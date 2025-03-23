@@ -6,14 +6,14 @@ async function GET(request) {
   body = Object.fromEntries(body);
 
   const http = axios.create({
-  baseURL: process.env.VITE_APP_WEATHER_URL
+    baseURL: process.env.VITE_APP_WEATHER_URL,
   });
 
   const res = await http
-    .get("/forecast", {
+    .get("/weather", {
       params: {
         ...body,
-        appid: process.env.VITE_APP_WEATHER_APP_KEY,
+        appid: process.env.VITE_APP_WEATHER_API_KEY,
       },
     })
     .then((response) => response.data);
