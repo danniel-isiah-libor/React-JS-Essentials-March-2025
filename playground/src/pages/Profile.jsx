@@ -1,11 +1,11 @@
-import React from "react";
-import "./Profile.css";
-import Header from "./components/Header";
-import About from "./components/About";
-import Gallery from "./components/Gallery";
+import React, { useState } from "react";
+import "../css/Profile.css";
+import Header from "../components/Header";
+import About from "../components/About";
+import Gallery from "../components/Gallery";
 
 function Profile() {
-  const profile = {
+  const [profile] = useState({
     image: "//unsplash.it/seed/profile158/200",
     name: "John Doe",
     username: "johndoe",
@@ -15,7 +15,7 @@ function Profile() {
     date: "March 08, 2025 - present",
     about:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies, mi id ultricies tempus, ex felis ultricies nunc, nec ultricies purus erat ac odio. Nullam nec purus at risus tincidunt varius. Integer et odio at elit ultricies aliquam. Nullam nec ultricies erat. Nullam nec purus at risus tincidunt varius. Integer et odio at elit ultricies aliquam. Nullam nec ultricies erat.",
-  };
+  });
 
   const gallery = [
     "//unsplash.it/seed/a123/200",
@@ -38,7 +38,6 @@ function Profile() {
         <About body={profile.about} />
 
         <Gallery images={gallery} />
-        
       </div>
     </div>
   );

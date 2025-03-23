@@ -1,6 +1,6 @@
 import React from "react";
-import InputField from "./components/InputField.jsx";
-import "./AuthForm.css";
+import InputField from "../components/InputField.jsx";
+import "../css/AuthForm.css";
 
 function Login() {
   const submit = () => {
