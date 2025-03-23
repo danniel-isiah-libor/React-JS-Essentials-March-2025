@@ -8,6 +8,8 @@ import Profile from './Profile.jsx';
 import Layout from '../Layout.jsx';
 import NoPage from './NoPage.jsx';
 import Hooks from './Hooks.jsx';
+import CreatePost from "./CreatePost.jsx";
+import Memo from "./Memo.jsx";
 
 // function Home () {
 //     const url = window.location.href
@@ -44,14 +46,15 @@ function Home () {
                 <Route path="register" element={<Register/>}/>
 
                 <Route path="/" element={<Layout/>}>
-                    <Route path="dashboard" element={<Dashboard/>}/>
+                    <Route index element={<Dashboard/>}/>
                     <Route path="profile" element={<Profile/>}/>
                     <Route path="hooks" element={<Hooks/>}/>
-
+                    <Route path="post" element={<CreatePost/>}/>
                     <Route path="*" element={<NoPage/>}/>
-                </Route>
+                    <Route path="memo" element={<Memo/>}/>
 
-               
+
+                </Route>
             </Routes>
         </BrowserRouter>
     )

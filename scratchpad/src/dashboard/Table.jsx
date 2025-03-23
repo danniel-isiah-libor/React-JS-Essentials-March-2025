@@ -1,15 +1,15 @@
 import React from 'react'
-import TableHeaders from './TableHeaders.jsx'
-import TableRows from './TableRows.jsx'
+import TableHeaders from "./TableHeaders.jsx";
+import TableRows from "./TableRows.jsx";
 
-function Table(props) {
+function Table() {
   return (
     <>
         <table>
-            <TableHeaders headers={props.headers}/>
+            <TableHeaders/>
 
             <tbody>
-                <TableRows records={props.records}/>
+                <TableRows/>
             </tbody>
         </table>
     </>

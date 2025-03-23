@@ -1,10 +1,10 @@
 import React from 'react'
 
-function TableHeaders(props) {
+function TableHeaders(RecordContext) {
   return (
     <thead>
         {
-            props.headers.map((header, index) => {
+            RecordContext.headers.map((header, index) => {
                 return (
                     <th key={index}>
                         {header.label}

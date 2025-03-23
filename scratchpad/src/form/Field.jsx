@@ -8,6 +8,7 @@ function Field(props) {
           type={type ?? 'text'} 
           onChange={onChange}
           name={name}
+          className="w-full p-2 border border-gray-300 rounded mb-4"
         />
         {
           (errors) && (
