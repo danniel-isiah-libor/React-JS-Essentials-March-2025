@@ -1,10 +1,11 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import {RecordContext} from './UsersTable.jsx'
 function TableRows(props) {
+const {users} = useContext(RecordContext)
   return (
     <>
         {
-            props.records.map((record, index) => {
+            users.map((record, index) => {
                 return (
                     <tr key={index}>
                         {

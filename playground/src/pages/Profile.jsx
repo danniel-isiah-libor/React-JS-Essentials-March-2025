@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useReducer} from 'react'
 import Card from '../profile/Card.jsx'
 import Info from '../profile/Info.jsx'
 import WorkExperienceInfo from '../profile/WorkExperienceInfo.jsx'
@@ -10,8 +10,21 @@ function Profile() {
         Email: 'danniel@mail.test',
         Address: '1234 Main St, City, Country',
     })
+    
+    const reducer = (state,action)=>{
+        switch (action.type) {
+            case "DELETE":
+                let d = Array.from(state);
+                d.splice(action.index,1)
+                return d;
+                
+        
+            default:
+                break;
+        }
+    }
 
-    const [workExperiences] = useState([
+    const [workExperiences,dispatch] = useReducer(reducer,[
         {
             company: 'Tech Inc.',
             position: 'Software Engineer',
@@ -23,6 +36,10 @@ function Profile() {
             date: 'Jan 2021 - Dec 2022'
         }
     ])
+const onDelete = (index)=>{
+    dispatch({type:"DELETE",index})
+}
+   
 
   return (
     <>
@@ -43,7 +60,7 @@ function Profile() {
             {
                 workExperiences.map((workExperience, index) => {
                     return (
-                        <WorkExperienceInfo key={index} data={workExperience}/>
+                        <WorkExperienceInfo key={index} data={workExperience} onDelete={onDelete}/>
                     )
                 })
             }

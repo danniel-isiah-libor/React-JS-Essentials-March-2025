@@ -6,6 +6,7 @@ function WorkExperienceInfo(props) {
         <p>{props.data.company}</p>
         <p>{props.data.position}</p>
         <p>{props.data.date}</p>
+        <button onClick={props.onDelete}>Delete</button>
     </li>
   )
 }

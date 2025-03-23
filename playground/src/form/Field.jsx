@@ -9,6 +9,7 @@ function Field(props) {
           onChange={onChange}
           name={name}
           value={value}
+          className="border rounded p-1 ml-2"
         />
         {
           (errors) && (

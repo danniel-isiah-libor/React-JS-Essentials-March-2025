@@ -1,11 +1,15 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import { RecordContext } from './UsersTable'
 
 function TableHeaders(props) {
+
+    const {headers} = useContext(RecordContext)
+
   return (
     <thead>
         <tr>
             {
-                props.headers.map((header, index) => {
+                headers.map((header, index) => {
                     return (
                         <th key={index}>
                             {header.label}
