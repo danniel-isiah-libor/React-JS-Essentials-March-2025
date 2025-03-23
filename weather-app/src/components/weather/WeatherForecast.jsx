@@ -12,13 +12,21 @@ function WeatherForecast(props) {
   return (
     <Carousel className="w-full max-w-xs mt-10">
       <CarouselContent>
-        {props.forecast.map((weather, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1">
-              <WeatherCard weather={weather}/>
-            </div>
-          </CarouselItem>
-        ))}
+        {Object.keys(props.forecast).map((date) => {
+          return (
+            props.forecast[date].map((weather, index) => {
+              weather.name = date
+
+              return (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <WeatherCard weather={weather}/>
+                  </div>
+                </CarouselItem>
+              )
+            })
+          )
+        })}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

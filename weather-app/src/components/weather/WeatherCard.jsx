@@ -13,24 +13,28 @@ function WeatherCard(props) {
     <Card className="w-[350px] justify-center text-center">
       <CardHeader>
         <CardTitle>
-          {props.weather?.location}
+          {props.weather?.name}
         </CardTitle>
         <CardDescription>
-          {props.weather?.date}
+          {props.weather?.dt}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid w-full items-center gap-4">
-          <div className="flex flex-col space-y-1.5">
-            {props.weather?.icon}
+          <div className="flex flex-col space-y-1.5 justify-center text-center">
+            <img 
+              className="mx-auto"
+              width="100"
+              src={`http://openweathermap.org/img/w/${props.weather?.weather[0].icon}.png`}
+            />
           </div>
           <div className="flex flex-col space-y-1.5">
-            {props.weather?.status}
+            {props.weather?.weather[0].description}
           </div>
         </div>
       </CardContent>
       <CardFooter className="flex justify-center">
-      {props.weather?.temperature}
+      {props.weather?.main.temp}°C
       </CardFooter>
     </Card>
   )

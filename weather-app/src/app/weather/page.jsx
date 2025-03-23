@@ -5,11 +5,12 @@ import axios from 'axios'
 import SearchBar from '@/components/weather/SearchBar'
 import WeatherCard from '@/components/weather/WeatherCard'
 import WeatherForecast from "@/components/weather/WeatherForecast";
+import {format} from 'date-fns'
 
 function page() {
   const [search, setSearch] = useState('')
   const [currentWeather, setCurrentWeather] = useState({})
-  const [forecast, setForecast] = useState([])
+  const [forecast, setForecast] = useState({})
 
   useEffect(() => {
     if (search) {
@@ -18,8 +19,6 @@ function page() {
   }, [search])
 
   const onSearch = () => {
-    // searching...
-    console.log('searching...');
     fetchWeather()
     fetchForecast()
   }
@@ -31,12 +30,16 @@ function page() {
 
     const res = await http.get('/weather', {
       params: {
-        q: search
+        q: search,
+        units: 'metric'
       }
     })
     .then((response) => response.data)
+    .catch(() => null)
 
-    console.log(res);
+    if (res) {
+      setCurrentWeather(res)
+    }
   }
 
   const fetchForecast = async () => {
@@ -46,12 +49,28 @@ function page() {
 
     const res = await http.get('/forecast', {
       params: {
-        q: search
+        q: search,
+        units: 'metric'
       }
     })
     .then((response) => response.data)
+    .catch(() => null)
 
-    console.log(res);
+    if (res) {
+      const forecast = res.list.reduce((array, item) => {
+        const date = format(new Date(item.dt * 1000), 'yyyy-MM-dd')
+        
+        if (!array[date]) {
+          array[date] = []
+        }
+
+        array[date].push(item)
+
+        return array
+      }, {})
+
+      setForecast(forecast)
+    }
   }
 
   const onChange = (value) => {
@@ -59,7 +78,7 @@ function page() {
   }
 
   const hasCurrentWeather = !!Object.keys(currentWeather).length
-  const hasForecast = !!forecast.length
+  const hasForecast = !!Object.keys(forecast).length
 
   return (
     <>
