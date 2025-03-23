@@ -6,58 +6,30 @@ import SearchBar from '@/components/weather/SearchBar'
 import WeatherCard from '@/components/weather/WeatherCard'
 import WeatherForecast from "@/components/weather/WeatherForecast";
 import {format} from 'date-fns'
+import useWeather from '@/hooks/useWeather'
 
 function page() {
   const [search, setSearch] = useState('')
   const [currentWeather, setCurrentWeather] = useState({})
   const [forecast, setForecast] = useState({})
+  const {fetchWeather, fetchForecast} = useWeather()
 
   useEffect(() => {
     if (search) {
-      // searching...
+      onSearch()
     }
   }, [search])
 
-  const onSearch = () => {
-    fetchWeather()
-    fetchForecast()
-  }
-
-  const fetchWeather = async () => {
-    const http = axios.create({
-      baseURL: 'http://localhost:3000/api'
-    })
-
-    const res = await http.get('/weather', {
-      params: {
-        q: search,
-        units: 'metric'
-      }
-    })
-    .then((response) => response.data)
-    .catch(() => null)
-
-    if (res) {
-      setCurrentWeather(res)
+  const onSearch = async () => {
+    const resWeather = await fetchWeather(search)
+    if (resWeather) {
+      setCurrentWeather(resWeather)
     }
-  }
 
-  const fetchForecast = async () => {
-    const http = axios.create({
-      baseURL: 'http://localhost:3000/api'
-    })
+    const resForecast = await fetchForecast(search)
 
-    const res = await http.get('/forecast', {
-      params: {
-        q: search,
-        units: 'metric'
-      }
-    })
-    .then((response) => response.data)
-    .catch(() => null)
-
-    if (res) {
-      const forecast = res.list.reduce((array, item) => {
+    if (resForecast) {
+      const newForecast = resForecast.list.reduce((array, item) => {
         const date = format(new Date(item.dt * 1000), 'yyyy-MM-dd')
         
         if (!array[date]) {
@@ -69,7 +41,7 @@ function page() {
         return array
       }, {})
 
-      setForecast(forecast)
+      setForecast(newForecast)
     }
   }
 
