@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Hooks from './pages/Hooks'
 import Post from './pages/Post'
 import CreatePost from './pages/CreatePost'
+import MemoReact from './pages/MemoReact'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 export default function Home() {
 
@@ -46,7 +47,12 @@ export default function Home() {
           <CreatePost />
         </>
       } />
-
+      <Route path="/memo" element={
+        <>
+          <Header />
+          <MemoReact />
+        </>
+      } />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )
