@@ -8,6 +8,7 @@ import Layout from '../Layout.jsx'
 import NoPage from './NoPage.jsx'
 import Hooks from './Hooks.jsx'
 import CreatePost from './CreatePost.jsx'
+import Memo from './Memo.jsx'
 
 // function Home () {
 //     const url = window.location.href
@@ -48,6 +49,7 @@ function Home () {
                     <Route path="profile" element={<Profile/>}/>
                     <Route path="hooks" element={<Hooks/>}/>
                     <Route path="create-post" element={<CreatePost/>}/>
+                    <Route path="memo" element={<Memo/>}/>
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>
