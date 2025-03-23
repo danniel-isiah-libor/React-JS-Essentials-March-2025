@@ -7,8 +7,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useSelector } from 'react-redux';
 
 function WeatherCard(props) {
+  const weather = useSelector(state => state.weather)
+
+  console.log(weather);
+
   return (
     <Card className="w-[350px] justify-center text-center">
       <CardHeader>
